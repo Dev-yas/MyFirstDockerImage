@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient App</title>
+    <!-- Tailwind CSS for utility classes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font and base styles */
+        body {
+            font-family: "Inter", sans-serif; /* Using Inter font as required */
+            height: 100vh; /* Use vh for full viewport height */
+            margin: 0;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Animated gradient background properties */
+            background-size: 600% 600%; /* Increased size for more visible movement */
+            animation: gradient 0.1s ease infinite; /* Faster animation duration */
+        }
+
+        /* Keyframe animation for the background gradient movement */
+        @keyframes gradient {
+            0% { background-position: 0% 0%; } /* Start top-left */
+            25% { background-position: 100% 0%; } /* Move to top-right */
+            50% { background-position: 100% 100%; } /* Move to bottom-right */
+            75% { background-position: 0% 100%; } /* Move to bottom-left */
+            100% { background-position: 0% 0%; } /* Back to top-left */
+        }
+
+        h1 {
+            font-size: 2.5em; /* Slightly larger font size */
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.6); /* Stronger text shadow for contrast */
+            padding: 1.5rem 3rem; /* Add padding for a contained look */
+            border-radius: 1.5rem; /* More rounded corners for the heading */
+            background-color: rgba(0,0,0,0.2); /* Semi-transparent background for the heading */
+            backdrop-filter: blur(5px); /* Optional: blur effect for modern look */
+            -webkit-backdrop-filter: blur(5px); /* Safari support */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3); /* Add box shadow for depth */
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        Original template used:
+        <body style="background: linear-gradient(-45deg, {{ color1 }}, {{ color2 }}, {{ color1 }});">
+        
+        For standalone debugging, we're hardcoding example colors.
+        If using a server-side framework (e.g., Flask with Jinja), 
+        these values would be dynamically injected.
+    -->
+    <div style="background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);" class="absolute inset-0"></div>
+    <h1 class="relative z-10">Gradient from #ee7752 to #e73c7e</h1>
+</body>
+</html>
